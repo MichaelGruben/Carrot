@@ -8,4 +8,15 @@
     <string name="recipe3">Nudeln mit grünem Pesto</string>
     <string name="zuletzt_zubereitet_am">Zuletzt zubereitet am:</string>
     <string name="todo">TODO</string>
+    <string name="add_recipe">Rezept hinzufügen</string>
+    <string name="hint_recipe">Rezepttitel ...</string>
+    <string name="button_save">Speichern</string>
+    <string name="empty_not_saved">Rezept wurde nicht gespeichert, da der Titel leer ist</string>
+    <string name="durationShort">kurz</string>
+    <string name="durationMedium">mittel</string>
+    <string name="durationLong">lang</string>
+    <string name="workDuration">Zubereitungszeit:</string>
+    <string name="workTimeShort">kurz</string>
+    <string name="workTimeMedium">mittel</string>
+    <string name="workTimeLong">lang</string>
 </resources>

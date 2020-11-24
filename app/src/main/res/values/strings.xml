@@ -5,8 +5,19 @@
     <string name="recipe1">Halloumiburger</string>
     <string name="recipe2">Flammkuchen</string>
     <string name="recipe3">Nudeln mit grünem Pesto</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="zuletzt_zubereitet_am">Zuletzt zubereitet am:</string>
     <string name="todo">TODO</string>
+    <string name="add_recipe">Rezept hinzufügen</string>
+    <string name="hint_recipe">Title...</string>
+    <string name="button_save">Save</string>
+    <string name="empty_not_saved">Recipe not saved because it is empty.</string>
+    <string name="durationShort">kurz</string>
+    <string name="durationMedium">mittel</string>
+    <string name="durationLong">lang</string>
+    <string name="workDuration">Zubereitungszeit:</string>
+    <string name="workTimeShort">kurz</string>
+    <string name="workTimeMedium">mittel</string>
+    <string name="workTimeLong">lang</string>
+
 </resources>
