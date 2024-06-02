@@ -1,8 +1,14 @@
-import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { CarrotData } from './types';
+import { LoginForm } from './components/LoginForm';
 
-function App() {
+const App = ({ carrotData }: { carrotData: CarrotData }) => {
+  const { username } = carrotData;
+  if (!username) {
+   return <LoginForm />;
+  }
+
   return (
     <div className="App">
       <header className="App-header">
