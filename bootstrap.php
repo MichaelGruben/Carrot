@@ -12,10 +12,15 @@ $config = ORMSetup::createAttributeMetadataConfiguration(
     isDevMode: true,
 );
 
+$ini = parse_ini_file(__DIR__.'/../app.ini');
+
 // configuring the database connection
 $connection = DriverManager::getConnection([
-    'driver' => 'pdo_sqlite',
-    'path' => __DIR__ . '/db.sqlite',
+    'dbname' => $ini['dbname'],
+    'user' => $ini['user'],
+    'password' => $ini['password'],
+    'host' => $ini['host'],
+    'driver' => $ini['driver'],
 ], $config);
 
 // obtaining the entity manager
