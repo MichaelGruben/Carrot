@@ -18,21 +18,22 @@ class User
     #[ORM\Column(type: 'string')]
     private string $username;
     /** @var string */
-    #[ORM\Column(type: 'string')]
+    #[ORM\Column(type: 'string', unique: true)]
     private $email;
     /** @var string */
     #[ORM\Column(type: 'string')]
     private $passwordHash;
 
-     /** @var Collection<int, Recipe> */
-     private Collection $ownedRecipes;
- 
-     public function __construct()
-     {
-         $this->ownedRecipes = new ArrayCollection();
-     }
+    /** @var Collection<int, Recipe> */
+    private Collection $ownedRecipes;
 
-    public function toUsername(): string {
+    public function __construct()
+    {
+        $this->ownedRecipes = new ArrayCollection();
+    }
+
+    public function toUsername(): string
+    {
         return $this->username;
     }
 
@@ -45,5 +46,4 @@ class User
     {
         $this->passwordHash = $hash($password);
     }
-
 }

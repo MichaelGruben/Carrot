@@ -15,6 +15,6 @@ export const LoginForm = () => {
         <input {...register("login", { required: true })} />
         <label>Password</label>
         <input type="password" {...register("password", { required: true })} />
-        <input type="submit" />
+        <input type="submit" value="Anmelden" />
     </form>;
 };
