@@ -1,6 +1,5 @@
-import './App.css';
 import { CarrotData } from './types';
-import { LoginForm } from './components/LoginForm';
+import { LoginForm } from './components/ui/LoginForm';
 
 const App = ({ carrotData }: { carrotData: CarrotData }) => {
   const { username } = carrotData;

@@ -11,16 +11,14 @@ if ($login && $password) {
         ->findOneBy(array('email' => $login));
     if ($user) {
         $authenticated = $user->authenticate($password, "password_verify");
-        echo "Authenticated User by email and password " . $authenticated . "\n";
         if ($authenticated) {
-            echo "Hallo " . $user->toUsername();
             $_SESSION['username'] = $user->toUsername();
         }
     }
 } else if ($logout === 'true') {
-    error_log('ending session', 0);
     session_reset();
     session_destroy();
+    session_start();
 }
 echo "<script>window.carrotData=".json_encode($_SESSION)."</script>";
 include('dist/index.html');
