@@ -12,7 +12,7 @@ $config = ORMSetup::createAttributeMetadataConfiguration(
     isDevMode: true,
 );
 
-$ini = parse_ini_file(__DIR__.'/../app.ini');
+$ini = parse_ini_file(__DIR__.'/app.ini');
 
 // configuring the database connection
 $connection = DriverManager::getConnection([
