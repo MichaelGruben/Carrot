@@ -8,6 +8,7 @@
     "@hookform/resolvers": "^3.6.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-menubar": "^1.0.4",
     "@radix-ui/react-slot": "^1.0.2",
     "@svgr/webpack": "^5.5.0",
     "@testing-library/jest-dom": "^5.17.0",
@@ -153,6 +154,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "*",
+    "@tailwindcss/forms": "^0.5.7",
     "tailwindcss": "^3.4.4"
   }
 }
