@@ -3,25 +3,34 @@ import { CarrotData } from './types';
 
 const NewRecipeDialog = ({ showNewRecipeDialog, setShowNewRecipeDialog }: any) => (
   <div className='w-screen h-screen bg-gray-dark bg-opacity-90 absolute'>
-    <div className='w-fit m-auto mt-4 bg-primary flex flex-col'>
+    <div className='w-fit m-auto mt-4 bg-primary flex flex-col p-8'>
       <div className='flex flex-row flex-nowrap'>
         <span>Hier kannst du ein neues Rezept anlegen</span>
         <button onClick={() => setShowNewRecipeDialog(!showNewRecipeDialog)}>Schließen</button>
       </div>
       <form action="/" method="post" className='flex flex-col'>
         <label htmlFor='title'>Rezepttitel</label>
-        <input type="text" id="title" />
-        Aufwand
-        <label htmlFor='effort0'>gering</label>
-        <input type="radio" value="0" name="effort" id="effort0" />
-        <label htmlFor='effort0'>mittel</label>
-        <input type="radio" value="1" name="effort" id="effort1" />
-        <label htmlFor='effort0'>hoch</label>
-        <input type="radio" value="2" name="effort" id="effort2" />
-        <input type="submit" value="Speichern" />
-      </form>
-    </div>
-  </div>);
+        <input type="text" id="title" name="title" />
+        <label htmlFor='category'>Kategorie</label>
+        <select id="category" name="category">
+          <option value="noodle">Nudelgericht</option>
+          <option value="potato">Kartoffelgericht</option>
+          <option value="rice">Reisgericht</option>
+          <option value="dough">Teiggericht</option>
+          <option value="soup">Suppe/Eintopf</option>
+          <option value="misc">Sonstiges</option>
+      </select>
+      Aufwand
+      <label htmlFor='effort0'>gering</label>
+      <input type="radio" value="0" name="effort" id="effort0" />
+      <label htmlFor='effort0'>mittel</label>
+      <input type="radio" value="1" name="effort" id="effort1" />
+      <label htmlFor='effort0'>hoch</label>
+      <input type="radio" value="2" name="effort" id="effort2" />
+      <input type="submit" value="Speichern" name="eventNewRecipe" />
+    </form>
+  </div>
+  </div >);
 
 export const LoggedIn = ({ carrotData }: { carrotData: CarrotData; }) => {
   const { username } = carrotData;
@@ -35,7 +44,7 @@ export const LoggedIn = ({ carrotData }: { carrotData: CarrotData; }) => {
           Willkommen bei Carrot!
           <form action="/" method="post">
             <input type="hidden" name="logout" value="true" />
-            <input type="submit" value="Logout" />
+            <input type="submit" value="Logout" name="eventLogout" />
           </form>
         </header>
         <p>

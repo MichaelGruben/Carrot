@@ -15,6 +15,6 @@ export const LoginForm = () => {
         <input id="login" className="form-input" {...register("login", { required: true })} />
         <label htmlFor="password">Password</label>
         <input id="password" className="form-input" type="password" {...register("password", { required: true })} />
-        <input type="submit" value="Anmelden" />
+        <input type="submit" value="Anmelden" name="eventLogin" />
     </form>;
 };
