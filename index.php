@@ -12,6 +12,7 @@ if (isset($_POST['eventLogin'])) {
             $authenticated = $user->authenticate($password, "password_verify");
             if ($authenticated) {
                 $_SESSION['username'] = $user->toUsername();
+                $_SESSION['userid'] = $user->getId();
             }
         }
     }
@@ -26,6 +27,14 @@ if (isset($_POST['eventLogout']) && $_POST['logout'] === 'true') {
 if (isset($_POST['eventNewRecipe'])) {
     list('title' => $title, 'effort' => $effort, 'category' => $category) = $_POST;
     $_SESSION['newRecipe'] = ['title' => $title, 'effort' => $effort, 'category' => $category];
+    $recipe = new Recipe();
+    $recipe->setName($title);
+    $recipe->setEffort($effort);
+    $recipe->assignCategory($category);
+    $entityManager->persist($recipe);
+    $entityManager->flush();
 }
-echo "<script>window.carrotData=" . json_encode($_SESSION) . "</script>";
+$carrotData = $_SESSION;
+unset($carrotData['userid']);
+echo "<script>window.carrotData=" . json_encode($carrotData) . "</script>";
 include('dist/index.html');

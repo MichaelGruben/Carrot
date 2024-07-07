@@ -1,6 +1,7 @@
 <?php
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'categories')]
@@ -23,5 +24,14 @@ class Category
     /** @var string */
     #[ORM\Column(type: 'string')]
     private string $name;
+
+    /** @var Collection<int, Recipe> An ArrayCollection of Recipe objects. */
+    #[ORM\OneToMany(targetEntity: Recipe::class, mappedBy: 'recipe')]
+    private Collection $assignedRecipes;
+
+    public function assignRecipe(Recipe $recipe)
+    {
+        $this->assignedRecipes[] = $recipe;
+    }
 
 }

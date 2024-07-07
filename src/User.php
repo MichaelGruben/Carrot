@@ -24,7 +24,8 @@ class User
     #[ORM\Column(type: 'string')]
     private $passwordHash;
 
-    /** @var Collection<int, Recipe> */
+    /** @var Collection<int, Recipe> An ArrayCollection of Recipe objects. */
+    #[ORM\OneToMany(targetEntity: Recipe::class, mappedBy: 'owner')]
     private Collection $ownedRecipes;
 
     public function __construct()
@@ -37,6 +38,11 @@ class User
         return $this->username;
     }
 
+    public function getId(): string
+    {
+        return $this->id;
+    }
+
     public function authenticate(string $password, callable $checkHash): bool
     {
         return $checkHash($password, $this->passwordHash);
@@ -45,5 +51,10 @@ class User
     public function changePassword(string $password, callable $hash): void
     {
         $this->passwordHash = $hash($password);
+    }
+
+    public function addOwnedRecipe(Recipe $recipe)
+    {
+        $this->ownedRecipes[] = $recipe;
     }
 }
